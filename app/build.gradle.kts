@@ -91,4 +91,7 @@ dependencies {
     // Glide
     implementation(Dependencies.Glide.glide)
     annotationProcessor(Dependencies.Glide.glideCompiler)
+
+    //Coil
+    implementation("io.coil-kt:coil:2.2.2")
 }
