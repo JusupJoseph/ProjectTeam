@@ -2,7 +2,7 @@
 plugins {
     id(Plugins.application) version Version.application apply false
     id(Plugins.library) version Version.application apply false
-    id (Plugins.kotlinAndroid) version "1.7.20" apply false
+    id(Plugins.kotlinAndroid) version "1.7.20" apply false
 
     // Hilt
     id(Plugins.hilt) version Version.hilt apply false

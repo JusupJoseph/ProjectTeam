@@ -6,5 +6,5 @@ import javax.inject.Inject
 class GetRickAndMortyUseCase @Inject constructor(
     private val rickAndMortyRepository: RickAndMortyRepository
 ) {
-operator fun invoke() = rickAndMortyRepository.getRickAndMortyList()
+    operator fun invoke() = rickAndMortyRepository.getRickAndMortyList()
 }

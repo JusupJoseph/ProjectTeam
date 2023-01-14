@@ -1,6 +1,6 @@
 package com.example.projectteam.data.base
 
-import com.example.projectteam.common.either.Either
+import com.example.projectteam.domain.either.Either
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

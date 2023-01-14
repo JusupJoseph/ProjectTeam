@@ -1,4 +1,4 @@
-package com.example.projectteam.common.either
+package com.example.projectteam.domain.either
 
 sealed class Either<out L, out R> {
     data class Left<out L>(val message: L? = null) : Either<L, Nothing>()

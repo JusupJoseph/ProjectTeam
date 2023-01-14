@@ -22,3 +22,6 @@ data class CharacterModel(
     @SerializedName("image")
     val image: String,
 )
+
+
+

@@ -3,39 +3,35 @@ package com.example.projectteam.presentation.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import coil.load
-import com.example.projectteam.data.remote.dtos.CharacterModel
+import com.bumptech.glide.Glide
+import com.example.myapplication.presentation.base.BaseDiffUtilItemCallback
 import com.example.projectteam.databinding.ItemCharacterBinding
+import com.example.projectteam.presentation.model.CharacterModelUI
 
-class CharacterAdapter(val list: ArrayList<CharacterModel>) :
-    RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
+class CharacterAdapter :
+    androidx.recyclerview.widget.ListAdapter<CharacterModelUI, CharacterAdapter.CharacterViewHolder>(
+        BaseDiffUtilItemCallback()
+    ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder =
         CharacterViewHolder(
             ItemCharacterBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
 
-    override fun getItemCount(): Int = list.size
-
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
-        holder.onBind(list[position])
+        getItem(position).let { holder.onBind(it) }
     }
 
-    class CharacterViewHolder(private val binding: ItemCharacterBinding) :
-        ViewHolder(binding.root) {
-        fun onBind(model: CharacterModel) {
-            binding.ivCharacter.load(model.image)
-            binding.tvNameCharacter.text = model.name
-            binding.tvStatus.text = model.status
-            binding.tvSpecies.text = model.species
-            binding.tvType.text = model.type
-            binding.tvFirstSeen.text = model.gender
+    class CharacterViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(characterModelUI: CharacterModelUI) {
+            with(binding) {
+                tvNameCharacter.text = characterModelUI.name
+                Glide
+                    .with(ivCharacter)
+                    .load(characterModelUI.image)
+                    .into(ivCharacter)
+
+            }
         }
-    }
-
-    fun addNewItems(characterModel: List<CharacterModel>) {
-        list.addAll(characterModel)
-        notifyDataSetChanged()
     }
 }

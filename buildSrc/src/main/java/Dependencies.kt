@@ -13,13 +13,14 @@ object Version {
 object Plugins {
     const val application = "com.android.application"
     const val kotlinAndroid = "org.jetbrains.kotlin.android"
-    const val kapt = "kapt"
+    const val kapt = "kotlin-kapt"
     const val hilt = "com.google.dagger.hilt.android"
     const val saveArgs = "androidx.navigation.safeargs"
     const val library = "com.android.library"
 }
 
 object Dependencies {
+    const val coil = "io.coil-kt:coil:2.2.2"
 
     object Core {
         const val core = "androidx.core:core-ktx:1.9.0"

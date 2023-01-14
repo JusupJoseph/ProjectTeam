@@ -1,5 +1,6 @@
 package com.example.projectteam.data.remote.dtos
 
+import com.example.projectteam.domain.models.rick_and_morty_model.RickAndMortyModel
 import com.google.gson.annotations.SerializedName
 
 data class Result(
@@ -25,4 +26,9 @@ data class Result(
     val type: String,
     @SerializedName("url")
     val url: String
+)
+fun com.example.projectteam.data.remote.dtos.Result.toDomain() = RickAndMortyModel(
+    id = id,
+    name = name,
+    image = image
 )

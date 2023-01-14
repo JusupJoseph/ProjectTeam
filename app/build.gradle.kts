@@ -3,7 +3,7 @@ plugins {
     id (Plugins.kotlinAndroid)
 
     // Kapt
-    kotlin(Plugins.kapt)
+    id(Plugins.kapt)
 
     // Hilt
     id(Plugins.hilt)
@@ -93,5 +93,5 @@ dependencies {
     annotationProcessor(Dependencies.Glide.glideCompiler)
 
     //Coil
-    implementation("io.coil-kt:coil:2.2.2")
+    implementation(Dependencies.coil)
 }
